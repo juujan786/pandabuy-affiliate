@@ -1,89 +1,44 @@
-import SwiperCore from "swiper";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
-import "./styles.css";
-import {
-  Navigation,
-  Pagination,
-  EffectFade,
-  Autoplay,
-  EffectCoverflow,
-} from "swiper/modules";
-import { useEffect, useRef, useState } from "react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
-// Initialize required Swiper modules
-SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay, EffectCoverflow]);
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import Card from "./Card";
 
 const HeroSwiper = () => {
-  const swiperRef = useRef(null);
-
-  const handleMouseEnter = () => {
-    if (
-      swiperRef.current !== null &&
-      swiperRef.current.swiper.autoplay.running
-    ) {
-      swiperRef.current.swiper.autoplay.stop();
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (
-      swiperRef.current !== null &&
-      !swiperRef.current.swiper.autoplay.running
-    ) {
-      swiperRef.current.swiper.autoplay.start();
-    }
-  };
-
   return (
-    <div
-      className="w-screen h-96 overflow-hidden"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className="w-[80%] mx-auto">
       <Swiper
-        // onSwiper={setSwiperInstance}
-        ref={swiperRef}
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          //   disableOnInteraction: false,
-        }}
+        className="swiper-wrapper"
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={10}
         slidesPerView={1}
-        spaceBetween={30}
-        effect="coverflow"
-        pagination={{
-          clickable: true,
+        breakpoints={{
+          700: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
         }}
-        className="h-screen"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
       >
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+          <Card />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          <Card />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          <Card />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          <Card />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        {/* Add more SwiperSlides with images */}
       </Swiper>
     </div>
   );
