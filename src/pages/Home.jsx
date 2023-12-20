@@ -11,7 +11,7 @@ const Home = () => {
     <div className="min-h-screen overflow-hidden">
       <Hero />
       <FeaturedProducts />
-      <Owner />
+      {/* <Owner /> */}
       <Testinomials />
       <FAQs />
       {/* <AddItem /> */}

@@ -38,13 +38,16 @@ const Products = () => {
             />
           </div>
 
-          <div class="flex items-center justify-between mt-4">
+          {/* <div class="flex items-center justify-between mt-4">
             <p class="font-medium">Filters</p>
 
             <button class="px-4 py-2 bg-stone-700 h text-sm font-medium rounded-md">
               Reset Filter
             </button>
-          </div>
+          </div> */}
+
+
+          
 
           <div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
