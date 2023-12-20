@@ -1,8 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import Card from "./Card";
 import HeroSwiper from "./HeroSwiper";
 
 const FeaturedProducts = () => {
+  const navigate = useNavigate();
+  function handleClickViewAll() {
+    navigate("products");
+  }
   return (
     <div className="w-[90%] lg:w-[80%] xl:w-[1200px] mx-auto">
       <div className="flex flex-col items-center">
@@ -13,7 +18,7 @@ const FeaturedProducts = () => {
           <Card />
           <Card />
         </div>
-        <Button text={"VIEW ALL"} />
+        <Button text={"VIEW ALL"} click={handleClickViewAll} fontSize={26} />
       </div>
     </div>
   );

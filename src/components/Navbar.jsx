@@ -21,6 +21,9 @@ const Navbar = () => {
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
+  function handleJoinDiscord() {
+    alert("Feater under development");
+  }
   return (
     <>
       <div className="relative bg-transparent z-30 text-sm font-bold">
@@ -62,7 +65,11 @@ const Navbar = () => {
               FAQ
             </li>
 
-            <Button text={"JOIN THE DESCORD"}/>
+            <Button
+              text={"JOIN THE DESCORD"}
+              click={handleJoinDiscord}
+              fontSize={24}
+            />
             <hr className="md:hidden w-full border-2 border-green-700" />
           </ul>
         </nav>

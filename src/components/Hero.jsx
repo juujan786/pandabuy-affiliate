@@ -1,10 +1,12 @@
 import React from "react";
 import HeroSwiper from "./HeroSwiper";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  function handleClick() {
-    console.log("lay");
+  const navigate = useNavigate();
+  function handleJoinDiscord() {
+    alert("Feater under development");
   }
   return (
     <div className="min-h-screen flex justify-center">
@@ -14,11 +16,18 @@ const Hero = () => {
           THE #1 PLACE FOR YOUR REP <br className="hidden lg:flex" /> NEEDS
         </p>
         <span className="">
-          <button className="bg-green-600 px-4 py-2 rounded-lg my-4">
+          <button
+            onClick={() => navigate("products")}
+            className="bg-green-600 px-4 py-2 rounded-lg my-4"
+          >
             PRODUCTS
           </button>
           <br />
-          <Button text={"JOIN THE DESCORD"} />
+          <Button
+            text={"JOIN THE DESCORD"}
+            click={handleJoinDiscord}
+            fontSize={26}
+          />
         </span>
       </div>
     </div>
