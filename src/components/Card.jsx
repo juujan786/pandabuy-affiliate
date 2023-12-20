@@ -11,9 +11,9 @@ const Card = ({ item }) => {
   };
 
   return (
-    <div className="group my-10 flex w-full flex-col overflow-hidden rounded-lg border border-stone-500 bg-stone-800 shadow-md">
+    <div className="group max-w-[300px] my-10 flex  flex-col justify-between overflow-hidden rounded-lg border border-stone-500 bg-stone-800 shadow-md">
       <a
-        className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+        className="relative mx-2 mt-2 flex h-[200px] overflow-hidden rounded-xl"
         href="#"
       >
         <img
@@ -22,35 +22,35 @@ const Card = ({ item }) => {
           src={item.image}
           alt={item.title}
         />
-        <span className="absolute w-6 h-6 top-0 left-0 m-2 rounded-full bg-red-700 px-2 text-center text-sm font-medium text-white"></span>
+        {/* <span className="absolute w-6 h-6 top-0 left-0 m-2 rounded-full bg-red-700 px-2 text-center text-sm font-medium text-white"></span> */}
       </a>
-      <div className="mt-4 px-5 pb-5">
+      <div className="mt-2 px-3 pb-1">
         <Link to={""}>
-          <h5 className="text-xl tracking-tight text-stone-300">
+          <h5 className="tracking-tight text-stone-300">
             {item.title}
           </h5>
         </Link>
-        <div className="mt-2 mb-5 flex items-center justify-between">
+        <div className="mt-2 mb-2 flex items-center justify-between">
           <p>
-            <span className="text-3xl font-bold text-stone-300">
+            <span className="text-[23px] font-bold text-stone-300">
               ${item.price}
             </span>
           </p>
         </div>
-        <div className="flex justify-between flex-col gap-4">
-          <button
-            onClick={handleBuyOnPanda}
-            className="flex items-center justify-center rounded-md border-2 border-stone-900 bg-stone-900 text-stone-300 px-5 py-2.5 text-center text-sm font-medium hover:text-stone-900 hover:bg-stone-300  transition-all outline-none"
-          >
-            Buy on Pandabuy
-          </button>
-          <button
-            onClick={handleQC}
-            className="flex items-center justify-center rounded-md border-2 border-stone-900 bg-stone-300 px-5 py-2.5 text-center text-sm font-medium text-stone-900 hover:bg-stone-900 hover:text-stone-300 transition-all outline-none"
-          >
-            Quality Check
-          </button>
-        </div>
+      </div>
+      <div className="flex px-3 pb-2 justify-between flex-col gap-2">
+        <button
+          onClick={handleBuyOnPanda}
+          className="flex items-center justify-center rounded-md border-2 border-stone-900 bg-stone-900 text-stone-300  py-2 text-center text-sm font-medium hover:text-stone-900 hover:bg-stone-300  transition-all outline-none"
+        >
+          Buy on Pandabuy
+        </button>
+        <button
+          onClick={handleQC}
+          className="flex items-center justify-center rounded-md border-2 border-stone-900 bg-stone-300 px-5 py-2.5  text-center text-sm font-medium text-stone-900 hover:bg-stone-900 hover:text-stone-300 transition-all outline-none"
+        >
+          Quality Check
+        </button>
       </div>
     </div>
   );

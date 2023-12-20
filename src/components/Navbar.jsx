@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Button from "./Button";
 
 const Navbar = () => {
@@ -18,61 +18,40 @@ const Navbar = () => {
       navigate("faq");
     }
   }
-  function toggleMenu() {
-    setIsMenuOpen(!isMenuOpen);
-  }
-  function handleJoinDiscord() {
-    alert("Feater under development");
-  }
+
+
+
+  const handleScrollToPrice = () => {
+    // Scroll to the position 220px from the top
+    if (window.location.pathname === '/') {
+      window.scrollTo({
+        top: 1400,
+        behavior: 'smooth',
+      });
+    }
+  };
   return (
     <>
-      <div className="relative bg-transparent z-30 text-sm font-bold">
-        <nav className="flex justify-between items-center mx-auto w-[90%] lg:w-[80%] xl:w-[90%] 2xl:w-[1400px] py-6">
-          <NavLink to={""}>Logo</NavLink>
-          <span
-            onClick={toggleMenu}
-            className="flex md:hidden text-3xl text-stone-200 absolute right-6 cursor-pointer"
-          >
-            {isMenuOpen ? "X" : "="}
-          </span>
-          <ul
-            className={`${
-              isMenuOpen ? "flex" : "hidden"
-            } bg-stone-900 md:bg-transparent md:flex items-center flex-col md:flex-row gap-6 list-none absolute w-screen md:w-auto top-16 left-[-20px] md:left-0 md:top-0 md:relative`}
-          >
-            <li
-              className={`${
-                active !== "home" ? "" : "text-green-600"
-              } hover:text-green-600 cursor-pointer`}
-              onClick={() => handleClick("home")}
-            >
-              Home
-            </li>
-            <li
-              className={`${
-                active !== "products" ? "" : "text-green-600"
-              } hover:text-green-600 cursor-pointer`}
-              onClick={() => handleClick("products")}
-            >
-              Products
-            </li>
-            <li
-              className={`${
-                active !== "faq" ? "" : "text-green-600"
-              } hover:text-green-600 cursor-pointer`}
-              onClick={() => handleClick("faq")}
-            >
-              FAQ
-            </li>
+      <div class="relative flex justify-center max-w-screen-xl flex-col overflow-hidden px-4 py-4 bg-gray-800 md:mx-auto md:flex-row md:items-center">
+        <input type="checkbox" class="peer hidden" id="navbar-open" />
+        <label class="absolute top-5 right-7 cursor-pointer md:hidden" for="navbar-open">
+          <span class="sr-only">Toggle Navigation</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </label>
+        <div class="peer-checked:mt-8  peer-checked:max-h-56 flex max-h-0 w-full flex-col items-center justify-center overflow-hidden transition-all md:ml-24 md:max-h-full md:flex-row md:items-start">
+          <ul class="flex w-full justify-center flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
+            <Link to="/">
+              <li class="font-bold text-[20px] md:mr-12 hover:underline underline-offset-4 decoration-blue-700"><a href="#">Home</a></li>
+            </Link>
+            <Link to='products'>
+              <li class="md:mr-12 text-[20px] hover:underline underline-offset-4 decoration-blue-700"><a href="#">Product</a></li>
+            </Link>
+            <li class="md:mr-12 text-[20px] hover:underline underline-offset-4 decoration-blue-700" onClick={handleScrollToPrice}><a href="#">Customer reviews</a></li>
 
-            <Button
-              text={"JOIN THE DESCORD"}
-              click={handleJoinDiscord}
-              fontSize={24}
-            />
-            <hr className="md:hidden w-full border-2 border-green-700" />
           </ul>
-        </nav>
+        </div>
       </div>
     </>
   );
