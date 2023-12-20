@@ -16,7 +16,7 @@ const Products = () => {
 
   return (
     <section>
-      <div class="relative items-center w-[90%] lg:w-[80%] xl:w-[1200px] py-12 mx-auto min-h-screen">
+      <div class="relative items-center w-[90%] lg:w-[80%] xl:w-[90%] 2xl:w-[1400px] py-12 mx-auto min-h-screen">
         <div class="w-full text-stone-300 shadow p-5 rounded-lg bg-stone-800 border border-stone-500">
           <div class="relative">
             <div class="absolute flex items-center ml-2 h-full">

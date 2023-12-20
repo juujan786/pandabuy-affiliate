@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const Owner = () => {
   return (
-    <div className="w-[90%] lg:w-[80%] xl:w-[1200px] mx-auto">
+    <div className="w-[90%] lg:w-[80%] xl:w-[90%] 2xl:w-[1400px] mx-auto">
       <div className="flex flex-col items-center py-6 mt-20">
         <h1 className="text-[40px] font-bold py-10">MEET THE OWNERS</h1>
         <div className="flex flex-col md:flex-row justify-center items-center gap-8">

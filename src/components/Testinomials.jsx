@@ -11,7 +11,7 @@ const Testinomials = () => {
   return (
     <div>
       <section className="mt-12">
-        <div className="mx-auto w-[90%] lg:w-[80%] xl:w-[1200px] py-12">
+        <div className="mx-auto w-[90%] lg:w-[80%] xl:w-[90%] 2xl:w-[1400px] py-12">
           <div className="max-w-7xl items-end justify-between sm:flex sm:pe-6 lg:pe-8">
             <h2 className="max-w-xl text-4xl font-bold tracking-tight sm:text-5xl">
               Read trusted reviews from our customers

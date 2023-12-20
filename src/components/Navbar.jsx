@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <>
       <div className="relative bg-transparent z-30 text-sm font-bold">
-        <nav className="flex justify-between items-center mx-auto w-[90%] lg:w-[80%] xl:w-[1200px] py-6">
+        <nav className="flex justify-between items-center mx-auto w-[90%] lg:w-[80%] xl:w-[90%] 2xl:w-[1400px] py-6">
           <NavLink to={""}>Logo</NavLink>
           <span
             onClick={toggleMenu}
