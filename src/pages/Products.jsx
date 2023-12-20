@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
+import { useQuery } from "@tanstack/react-query";
+import { getData } from "../queries";
 
 const Products = () => {
+  const [title, setTitle] = useState(undefined);
+  const { data, isPending, isError, error, refetch } = useQuery({
+    queryKey: ["items"],
+    queryFn: () => getData({ title }),
+  });
+
+  useEffect(() => {
+    refetch();
+  }, [title, refetch]);
+
   return (
     <section>
-      <div class="relative items-center w-[90%] lg:w-[80%] xl:w-[1200px] py-12 mx-auto ">
+      <div class="relative items-center w-[90%] lg:w-[80%] xl:w-[1200px] py-12 mx-auto min-h-screen">
         <div class="w-full text-stone-300 shadow p-5 rounded-lg bg-stone-800 border border-stone-500">
           <div class="relative">
             <div class="absolute flex items-center ml-2 h-full">
@@ -20,7 +32,8 @@ const Products = () => {
 
             <input
               type="text"
-              placeholder="Search by listing, location, bedroom number..."
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Search products..."
               class="text-stone-300 px-8 py-3 w-full rounded-md bg-stone-700 border border-stone-500 focus:ring-0 text-sm outline-none"
             />
           </div>
@@ -52,13 +65,9 @@ const Products = () => {
           </div>
         </div>
         <div class="grid w-full grid-cols-1 gap-6 mx-auto md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {isError && <h1>Error...</h1>}
+          {isPending && <h1>Loading...</h1>}
+          {data && data.map((item) => <Card item={item} />)}
         </div>
       </div>
     </section>

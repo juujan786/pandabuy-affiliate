@@ -4,6 +4,7 @@ import Root from "./pages/Root";
 import ErrorPage from "./pages/ErrorPage";
 import Products from "./pages/Products";
 import FAQs from "./components/FAQs";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,14 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}></RouterProvider>
+    </QueryClientProvider>
+  );
 }
 
 export default App;

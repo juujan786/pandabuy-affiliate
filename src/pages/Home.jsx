@@ -4,6 +4,7 @@ import FeaturedProducts from "../components/FeaturedProducts";
 import Testinomials from "../components/Testinomials";
 import FAQs from "../components/FAQs";
 import Owner from "../components/Owner";
+import AddItem from "../components/AddItem";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Owner />
       <Testinomials />
       <FAQs />
+      {/* <AddItem /> */}
     </div>
   );
 };
